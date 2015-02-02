@@ -4,6 +4,7 @@
 1. Users
 2. Posts
 3. Comments
+4. 依造不同頁面，顯示不同連結
 
 
 ###Github Repo
@@ -19,6 +20,16 @@ https://github.com/mackenziechild/blog
 #####references
 用來參照到其他Table的外部鍵。
 語法：rails g model Comment name:string body:text post:references
+
+
+####依造目前不同頁面位置，顯示不同連結
+  <% if current_page?(root_path) %>
+    <p>All Posts</p>
+  <% elsif current_page?(about_path) %>
+    <p>About</p>
+  <% else %>
+    <%= link_to "Back to All Posts", root_path %>
+  <% end %>
 
 #####使用 CSS Normalize
 
